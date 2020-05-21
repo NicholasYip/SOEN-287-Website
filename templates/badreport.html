@@ -1,0 +1,9 @@
+
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Reported{% endblock %}
+{% block content %}
+<h2 style="text-align: center;color:darkblue;" > There doesn't exist a note titled {{ title }} </h2>
+    <h2 style="text-align: center;color:darkblue;" > Your report has been denied </h2>
+    <p class="align-center"> <img src="https://nakedsecurity.sophos.com/wp-content/uploads/sites/2/2018/04/shutterstock_695463538.jpg?w=780&h=408&crop=1" alt="received" width="25%" height="25%" class="center"></p>
+{% endblock %}

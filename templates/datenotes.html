@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}{{ super() }} - {{ date }}{% endblock %}
+{% block content %}
+    <h1 style="text-align: center">Notes for {{ date }}</h1>
+    <h3 style="text-align: center"> (Titles only, use Search Tab for more information)</h3>
+    <img class="centerimg" src="https://cdn.clipart.email/33aa5e4991aa2f2c5e9fb3ba3c989588_note-clipart-pin-note-pin-transparent-free-for-download-on-_640-566.png" alt="note" height="65%" width="15%" >
+    <ul id="notelist">
+        <script>
+            $(document).ready(function () {
+                const list = document.getElementById('notelist');
+                {{ notes | tojson }}.forEach(async (note) => {
+                    var node = document.createElement("li");
+                    var textnode = document.createTextNode(note);
+                    node.appendChild(textnode);
+                    node.setAttribute("class", "list-group-item")
+                    node.setAttribute("id", "listitem")
+                    list.appendChild(node);
+                });
+            });
+        </script>
+    </ul>
+
+{% endblock %}

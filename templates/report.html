@@ -1,0 +1,61 @@
+
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Report{% endblock %}
+{% block content %}
+    <h2 class="align-center">Found an inappropriate or simply misleading note?</h2>
+    <h2 class="align-center">Report it by filling out the form below!</h2>
+    <h2 class="align-center">One of our administrators will take a look the note and your report</h2>
+    <form method="POST" action="/report">
+        <table style="width:40%; text-align: center; margin: 0px auto;">
+            {{ form.hidden_tag() }}
+            <tr>
+                <td>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Note Title</label>
+                            {{ wtf.form_field(form.title, id="reporttitle") }}
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Reason for report</label>
+                        {{ wtf.form_field(form.message, id="reportmessage") }}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="align-center">
+                    <button id="reportbutton" class="btn btn-dark" type="submit" style="display: none">Create</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        document.getElementById('reporttitle').onkeyup = () => {
+            title = document.getElementById('reporttitle').value;
+            message = document.getElementById('reportmessage').value;
+            console.log(message)
+            console.log(title)
+            if (title.length > 1 && message.length > 1) {
+                document.getElementById("reportbutton").style.display = "block";
+            } else {
+                document.getElementById("reportbutton").style.display = "none";
+            }
+        }
+
+        document.getElementById('reportmessage').onkeyup = () => {
+            title = document.getElementById('reporttitle').value;
+            message = document.getElementById('reportmessage').value;
+            console.log(message)
+            console.log(title)
+            if (title.length > 1 && message.length > 1) {
+                document.getElementById("reportbutton").style.display = "block";
+            } else {
+                document.getElementById("reportbutton").style.display = "none";
+            }
+        }
+    </script>
+{% endblock %}

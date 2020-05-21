@@ -1,0 +1,44 @@
+
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Creation{% endblock %}
+
+{% block content %}
+    <h2 style="text-align: center;color:darkblue;"> Let's create a note!</h2>
+    <form form action="/creation" class="form" method="POST">
+        <table style="text-align: center; margin: 0px auto;" width="32%" >
+            {{ form.hidden_tag() }}
+            <tr>
+                <div class="form-group">
+                    <td class="align-left rounded"><label for="note title">Note Title</label></td>
+                    <td colspan="2">{{ wtf.form_field(form.title) }}</td>
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <td class="align-left rounded"><label for="note color">Note Color</label></td>
+                    <td colspan="2">{{ wtf.form_field(form.color) }}</td>
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <td class="align-left rounded"> <label for="note title">Date </label></td>
+                    <td colspan="2">{{ wtf.form_field(form.date) }}</td>
+
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <td class="align-left rounded"> <label for="note text">Note Text</label></td>
+                    <td colspan="2">  {{ wtf.form_field(form.text) }}</td>
+                </div>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button class="btn btn-dark" type="submit">Create</button></td>
+                <td><button class="btn btn-dark" type="reset">Reset</button></td>
+            </tr>
+        </table>
+    </form>
+    <br>
+{% endblock %}

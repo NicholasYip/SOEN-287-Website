@@ -1,0 +1,27 @@
+
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Report{% endblock %}
+{% block content %}
+    <h2 class="align-center">Contact us below!</h2>
+    <h2 class="align-center">We'll get back to you as soon as possible</h2>
+    <h2 class="align-center">We love getting feedback and suggestions from our users</h2>
+    <form method="POST" action="/contact">
+        <table style="width:40%; text-align: center; margin: 0px auto;">
+            {{ form.hidden_tag() }}
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Message</label>
+                         {{ wtf.form_field(form.message) }}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <button type="submit" class="btn btn-secondary">Submit message</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

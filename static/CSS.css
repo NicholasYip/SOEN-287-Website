@@ -1,0 +1,17 @@
+.headertext{position:relative;padding-top:2%;font-family: Arial;font-weight: bold;}
+.view {
+    background: url("header.jpg")no-repeat center center;
+    background-size: cover;
+}
+html, body, header, .view {height: 60%;}
+#footer, #navbar{color:white}
+
+
+.align-left{text-align: left}
+.align-center{text-align: center}
+.column{width: 4%}
+#tableid{width:40%;text-align: center; margin: 0px auto;}
+#tablesearch{width:40%;text-align: center; margin: 0px auto;}
+#inputsearch{text-align: center; margin: 0px auto;}
+#listitem{width:40%; text-align: center; margin: 0px auto;}
+.centerimg{text-align: center; margin: 0px auto;display: block; margin-left: auto; margin-right: auto;}

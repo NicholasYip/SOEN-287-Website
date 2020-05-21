@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Search{% endblock %}
+
+{% block content%}
+    <h2 style="text-align: center;color:darkblue;"> Enter a word or date to search through all the active notes</h2>
+    <form action="/search" class="form" method="POST">
+        <table id="inputsearch">
+            {{ form.hidden_tag() }}
+            <tr>
+                <td><button class="btn btn-dark" type="submit">Search</button></td>
+                <td>
+                    <div class="input-group mb-3">
+                        {{ wtf.form_field(form.word) }}
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <p class="align-center"><img src="/static/detective.jpg" alt="detective" ></p>
+{% endblock %}

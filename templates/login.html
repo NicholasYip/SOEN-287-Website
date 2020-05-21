@@ -1,0 +1,24 @@
+
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Login{% endblock %}
+{% block content %}
+    <h2 class="align-center">User Login</h2>
+    <form action="/login" method="POST" >
+        {{ form.csrf_token }}
+        <table style="text-align: center; margin: 0px auto" width="40%">
+            <tr>
+                <td>
+                    {{ wtf.form_field(form.username) }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ wtf.form_field(form.password) }}
+                </td>
+            </tr>
+            <tr>
+                <td><button class="btn btn-dark" type="submit">Login</button></td>
+            </tr>
+        </table>
+{% endblock %}

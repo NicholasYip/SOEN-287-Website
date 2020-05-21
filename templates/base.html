@@ -1,0 +1,177 @@
+{% import "bootstrap/wtf.html" as wtf %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <title>{% block title %}DeeZNotes{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/static/CSS.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+    {% endblock %}
+</head>
+<body>
+{% block navbar %}
+    <div class="view intro-2">
+        <div class="full-bg-img">
+            <div class="mask rgba-black-light flex-center">
+                <div class="container text-center white-text">
+                    <div class="white-text text-center wow fadeInUp">
+                        <h1 class="headertext">DeeZNotes</h1>
+                        <h5 class="headertext">Post and view notes from users all over the world</h5>
+                        <br>
+                        <p class="headertext">Nicholas Yiphoiyen, 40117237, SOEN 287, section W, Winter 2020, Concordia University  </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav id= "navbar" class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+        <img src="/static/logo.png" alt="logo" style="width:40px;">
+        <div class="collapse navbar-collapse" >
+            <ul class="navbar-nav">
+                <li class="nav-item" id="ok">
+                    <a class="nav-link" href="/">Homepage</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/creation">Creation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/calendar">Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/trashcan">Trashcan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/report">Report</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/search">Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+                <li>
+                    {% block signintop %}
+                    {% endblock %}
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<br>
+{% block content %}
+
+{% endblock %}
+<br>
+{% block footer %}
+    <footer class="page-footer font-small sticky-bottom stylish-color-dark pt-4 bg-dark" id="footer">
+        <div class="container text-center text-md-left">
+            <div class="row">
+                <div class="col-md-4 mx-auto">
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About this site</h5>
+                    <p>This site was made as a series of assignments for the class Web Programming (SOEN 287) of Concordia University, by myself, Nicholas Yiphoiyen. This site serves as a online community notebook </p>
+                </div>
+                <hr class="clearfix w-100 d-md-none">
+                <div class="col-md-2 mx-auto">
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Social Medias</h5>
+                    <ul class="list-unstyled">
+                        <table style="text-align: center; margin: 0px auto">
+                            <tr>
+                                <td> <li><a href="https://www.instagram.com/"><img src="/static/instagram.png" alt="instagram" width="50px" height="50px"></a></li></td>
+                                <td>  <li><a href="https://twitter.com/home"><img src="/static/twitter.png" alt="twitter" width="50px" height="50px"></a></li></td>
+                            </tr>
+                            <tr>
+                                <td> <li><a href="https://www.snapchat.com/"><img src="/static/snapchat.png" alt="snapchat" width="50px" height="50px"> </a></li></td>
+                                <td> <li><a href="https://www.facebook.com/"><img src="/static/facebook.png" alt="fb" width="50px" height="50px"></a></li></td>
+                            </tr>
+                        </table>
+                    </ul>
+                </div>
+                <hr class="clearfix w-100 d-md-none">
+                <div class="col-md-2 mx-auto">
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Contact Me</h5>
+                    <ul class="list-unstyled">
+                        <li>Nicholas Yiphoiyen</li>
+                        <li>514-705-7401</li>
+                        <li>fakemail@gmail.com</li>
+                    </ul>
+                </div>
+                <hr class="clearfix w-100 d-md-none">
+                <div class="col-md-2 mx-auto">
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Sponsors</h5>
+                    <ul class="list-unstyled">
+                        <li>Amazon</li>
+                        <li>Google</li>
+                        <li>Microsoft</li>
+                        <li>Apple</li>
+                        <li>Coca-Cola</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        {% block signinbot %}
+            <ul class="list-unstyled list-inline text-center py-2">
+                <li class="list-inline-item">
+                    <h5 class="mb-1"></h5>
+                </li>
+                {% if current_user.is_authenticated %}
+                    <li class="list-inline-item">
+                        <h2>Welcome {{ current_user.fname }}!!</h2>
+                    </li>
+                    <li>
+                        <a href="/logout" class="btn btn-light btn-rounded">Logout</a>
+                    </li>
+                {% else %}
+                    <li class="list-inline-item">
+                        <a href="/signup" class="btn btn-light btn-rounded">Sign Up!</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="/login" class="btn btn-light btn-rounded">Login</a>
+                    </li>
+                {% endif %}
+            </ul>
+        {% endblock %}
+        <form method="POST">
+            <table style="text-align: center; margin: 0px auto;">
+                {{ newsletter.hidden_tag() }}
+                <tr>
+                    <div class=" input-group mb-3" >
+                        <td>
+                            <div class="input-group-prepend " >
+                                <button class="btn btn-light btn-rounded" type="submit" id="newsletterbutton">Subcribe!</button>
+                            </div>
+                        </td>
+                        <td>
+                            {{ wtf.form_field(newsletter.newsletter) }}
+                        </td>
+                    </div>
+                </tr>
+            </table>
+        </form>
+        <div class="footer-copyright text-center py-3">Copyright:
+            <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0"> Nicholas Yiphoiyen</a>
+        </div>
+    </footer>
+{% endblock %}
+</body>
+</html> 

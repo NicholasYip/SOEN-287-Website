@@ -1,0 +1,81 @@
+
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Sign up{% endblock %}\
+
+{% block content %}
+    <h2 class="align-center">Please create an account by filling the boxes below!</h2>
+    <form action="/signup" method="POST">
+        <table style="text-align: center; margin: 0px auto" width="35%">
+            {{ form.hidden_tag() }}
+            <tr>
+                <div class="input-group">
+                    <td>
+                        <div class="input-group-prepend">
+                            <span>First and last name</span>
+                        </div>
+                    </td>
+                    <td>{{ wtf.form_field(form.fname) }}</td>
+
+                    <td>{{ wtf.form_field(form.lname) }}</td>
+                </div>
+            </tr>
+            <tr>
+                <div class="input-group mb-3">
+                    <td>
+                        <div class="input-group-prepend">
+                            <span id="inputGroup-sizing-default">Username</span>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        {{ wtf.form_field(form.username) }}
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <div class="input-group mb-3">
+                    <td>
+                        <div class="input-group-prepend">
+                            <span id="inputGroup-sizing-default">Password</span>
+                        </div>
+                    </td>
+
+                    <td colspan="2">
+                        {{ wtf.form_field(form.password) }}
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <div class="input-group mb-3">
+                    <td>
+                        <div class="input-group-prepend">
+                            <span id="inputGroup-sizing-default">Repeat Password</span>
+                        </div>
+                    </td>
+
+                    <td colspan="2">
+                        {{ wtf.form_field(form.password2) }}
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <div class="input-group mb-3">
+                    <td>
+                        <div class="input-group-prepend">
+                            <spanid="inputGroup-sizing-default">Email</span>
+                        </div>
+                    </td>
+            <td colspan="2">
+                {{ wtf.form_field(form.email) }}
+            </td>
+            </div>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><button class="btn btn-dark" type="submit">Create Account</button></td>
+                <td><button class="btn btn-dark" type="reset">Clear</button></td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}
